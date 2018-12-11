@@ -5,23 +5,35 @@ global.log = require("tlf-log");
 
 log._setLevel("debug");
 
-// const { app, BrowserWindow } = require("electron");
-const DownloadManager = pquire("util/download-manager");
+const {app, BrowserWindow, dialog} = require("electron");
+const status = pquire("status");
 
-// let win;
-//
-// function createWindow () {
-//   // Create the browser window.
-//   win = new BrowserWindow({ width: 800, height: 600 });
-//
-//   // and load the index.html of the app.
-//   win.loadFile("index.html");
-// }
-//
-// app.on("ready", createWindow);
+app.on("ready", () => {
+  const win = new BrowserWindow({ width: 800, height: 600 });
+  win.loadFile("web/index.html");
+  
+  win.on("close", e => {
+    // Bypass check if nothing is happening
+    if (status.idle) { return; }
+    
+    let choice = dialog.showMessageBox(
+      win,
+      {
+        type: "warning",
+        buttons: ["Yes", "No"],
+        defaultId: 1,
+        cancelId: 1,
+        title: "Confirm",
+        message: "Are you sure you want to quit? This will cancel all downloads."
+      }
+    );
+    if (choice === 1) {
+      e.preventDefault();
+    }
+  });
+});
 
-(async function() {
-  const dlmg = new DownloadManager();
-  // TODO: add progress indicators to UI
-  await dlmg.crawl("https://<blog>.tumblr.com/");
-})();
+// Quit when all windows are closed.
+app.on("window-all-closed", () => {
+  app.quit();
+});

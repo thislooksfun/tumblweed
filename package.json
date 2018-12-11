@@ -1,24 +1,39 @@
 {
   "name": "tumblrweed",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple cross-platform Tumblr blog downloader.",
   "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "electron": "^3.0.10"
+  "directories": {
+    "lib": "lib"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "pquire": "^1.2.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
-    "tlf-log": "^1.3.1",
-    "website-scraper": "^4.0.0",
-    "website-scraper-phantom": "^1.0.0"
-  }
+    "tlf-log": "^1.3.1"
+  },
+  "devDependencies": {
+    "electron": "^3.0.10",
+    "electron-packager": "^13.0.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thislooksfun/tumblrweed.git"
+  },
+  "keywords": [
+    "tumblr",
+    "electron",
+    "cross-platform"
+  ],
+  "author": "thislooksfun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thislooksfun/tumblrweed/issues"
+  },
+  "homepage": "https://github.com/thislooksfun/tumblrweed#readme"
 }

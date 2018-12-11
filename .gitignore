@@ -71,3 +71,6 @@ Blogs/
 
 # Specific settings
 settings.json
+
+# Compiled binaries
+build/
