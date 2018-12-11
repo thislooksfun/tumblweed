@@ -1,0 +1,167 @@
+:root {
+  --titleBarHeight: 35px;
+  
+  /* Colors */
+  --backgroundColor:     51,  51,  51; /* rgb( 51,  51,  51) */
+  --textColor:          204, 204, 204; /* rgb(204, 204, 204) */
+  --buttonColor:         85,  85,  85; /* rgb( 85,  85,  85) */
+  --buttonHover:        102, 102, 102; /* rgb(102, 102, 102) */
+  --buttonDisabled:      65,  65,  65; /* rgb( 65,  65,  65) */
+  --buttonDisabledText: 125, 125, 125; /* rgb(125, 125, 125) */
+  
+  --fontSize: 18px;
+  --fontSizeSub: 15px;
+  
+  --fadeHeight: 20px;
+}
+
+
+body {
+  background-color: rgb(var(--backgroundColor));
+  color: rgb(var(--textColor));
+  
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  
+  margin: 0;
+  padding: 0;
+  
+  font-size: var(--fontSize);
+}
+
+
+#titlebar {
+  -webkit-app-region: drag;
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  height: var(--titleBarHeight);
+  width: 100%;
+}
+
+
+#insets {
+  position: absolute;
+  
+  overflow: scroll;
+  
+  top: var(--titleBarHeight);
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#wrapper {
+  position: absolute;
+  
+  left: 10px;
+  right: 10px;
+  
+  padding: var(--fadeHeight) 0;
+}
+
+.fade-down, .fade-up {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: var(--fadeHeight);
+  
+  z-index: 9999;
+}
+.fade-down {
+  top: var(--titleBarHeight);
+  background: linear-gradient(to bottom, rgb(var(--backgroundColor)), rgba(var(--backgroundColor), 0));
+}
+.fade-up {
+  bottom: 0;
+  background: linear-gradient(to top, rgb(var(--backgroundColor)), rgba(var(--backgroundColor), 0));
+}
+
+
+.blog {
+  /* Grid */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "Name Name Controls"
+    "URL URL Controls";
+  align-items: center;
+  
+  /* Other */
+  position: relative;
+  box-sizing: border-box;
+  
+  border-bottom: 1px solid #444;
+  
+  height: 4em;
+  padding: 0 10px;
+}
+
+
+.blog .controls {
+  grid-area: Controls;
+  justify-self: right;
+}
+
+
+.blog .name {
+  grid-area: Name;
+}
+
+
+.blog .url {
+  grid-area: URL;
+  font-size: var(--fontSizeSub);
+}
+
+
+
+
+
+
+
+
+/*
+██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████
+██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██
+██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████
+██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██
+██████   ██████     ██       ██     ██████  ██   ████ ███████
+*/
+
+button {
+  background-color: rgb(var(--buttonColor));
+  border: 0;
+  cursor: pointer;
+  color: rgb(var(--textColor));
+  font-size: var(--fontSize);
+  text-decoration: none;
+}
+button:hover {
+  background-color: rgb(var(--buttonHover));
+}
+button:active {
+  box-shadow: inset 0px 0px 10px 2px #0005;
+}
+button:focus {
+  outline: 0;
+}
+button:disabled {
+  background-color: rgb(var(--buttonDisabled));
+  color: rgb(var(--buttonDisabledText));
+}
+
+
+.add-blog {
+  display: block;
+  position: relative;
+  margin: 1em auto;
+  
+  padding: 15px 50px;
+}

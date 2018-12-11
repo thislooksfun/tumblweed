@@ -9,7 +9,17 @@ const {app, BrowserWindow, dialog} = require("electron");
 const status = pquire("status");
 
 app.on("ready", () => {
-  const win = new BrowserWindow({ width: 800, height: 600 });
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    show: false,
+    backgroundColor: "#333",
+    titleBarStyle: "hiddenInset",
+  });
+  win.once("ready-to-show", () => {
+    win.show();
+  });
+
   win.loadFile("web/index.html");
   
   win.on("close", e => {
