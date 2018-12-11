@@ -73,4 +73,4 @@ Blogs/
 settings.json
 
 # Compiled binaries
-build/
+dist/

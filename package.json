@@ -1,11 +1,8 @@
 {
   "name": "tumblrweed",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A simple cross-platform Tumblr blog downloader.",
   "main": "main.js",
-  "directories": {
-    "lib": "lib"
-  },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "pquire": "^1.2.0",
@@ -15,11 +12,13 @@
   },
   "devDependencies": {
     "electron": "^3.0.10",
-    "electron-packager": "^13.0.0"
+    "electron-builder": "^20.38.2"
   },
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -35,5 +34,12 @@
   "bugs": {
     "url": "https://github.com/thislooksfun/tumblrweed/issues"
   },
-  "homepage": "https://github.com/thislooksfun/tumblrweed#readme"
+  "homepage": "https://github.com/thislooksfun/tumblrweed#readme",
+  "build": {
+    "appId": "io.github.thislooksfun.tumblrweed",
+    "mac": {
+      "category": "Utilities",
+      "identity": null
+    }
+  }
 }
