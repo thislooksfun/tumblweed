@@ -4,7 +4,7 @@ tumblrweed
 A simple cross-platform Tumblr blog downloader. Works on Windows, Mac, Linux, and anything else that [Electron](https://electronjs.org) runs on.
 
 
-## Roadmap
+## Timeline
 
 #### 2018/12/13 (or 14, but hopefully 13):
  - release v1.0.0:
