@@ -94,29 +94,25 @@ body {
   
   height: 4em;
   padding: 0 10px;
-}
-
-
-.blog .controls {
-  grid-area: controls;
-  justify-self: right;
   
-  display: flex;
+  .controls {
+    grid-area: controls;
+    justify-self: right;
+    
+    display: flex;
+    
+    width: 200px;
+  }
   
-  width: 200px;
+  .name {
+    grid-area: name;
+  }
+  
+  .status {
+    grid-area: status;
+    font-size: @fontSizeSub;
+  }
 }
-
-
-.blog .name {
-  grid-area: name;
-}
-
-
-.blog .status {
-  grid-area: status;
-  font-size: @fontSizeSub;
-}
-
 
 
 
