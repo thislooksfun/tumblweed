@@ -1,0 +1,106 @@
+body {
+  background-color: @background;
+  color: @textLight;
+  
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  
+  margin: 0;
+  padding: 0;
+  
+  font-size: @fontSize;
+  font-family: @fontFamily;
+}
+
+
+#titlebar {
+  -webkit-app-region: drag;
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  height: @titleBarHeight;
+  width: 100%;
+}
+
+
+#insets {
+  position: absolute;
+  
+  overflow: scroll;
+  
+  top: @titleBarHeight;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#wrapper {
+  position: absolute;
+  
+  left: 10px;
+  right: 10px;
+  
+  padding: @fadeHeight 0;
+}
+
+.fade-down, .fade-up {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: @fadeHeight;
+  pointer-events: none;
+  
+  z-index: 9999;
+}
+.fade-down {
+  top: @titleBarHeight;
+  background: linear-gradient(to bottom, @background, fade(@background, 0));
+}
+.fade-up {
+  bottom: 0;
+  background: linear-gradient(to top, @background, fade(@background, 0));
+}
+
+
+.blog {
+  /* Grid */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "name controls"
+    "status controls";
+  align-items: center;
+  
+  /* Other */
+  position: relative;
+  box-sizing: border-box;
+  
+  border-bottom: 1px solid #444;
+  
+  height: 4em;
+  padding: 0 10px;
+  
+  .controls {
+    grid-area: controls;
+    justify-self: right;
+    
+    display: flex;
+    
+    width: 200px;
+  }
+  
+  .name {
+    grid-area: name;
+  }
+  
+  .status {
+    grid-area: status;
+    font-size: @fontSizeSub;
+  }
+}

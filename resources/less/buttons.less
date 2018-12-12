@@ -1,0 +1,96 @@
+button {
+  border: 0;
+  cursor: pointer;
+  font-size: @fontSize;
+  font-family: @fontFamily;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  
+  &:active {
+    box-shadow: inset 0px 0px 10px 2px #0005;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.block(@bg, @txt) {
+  background-color: @bg;
+  color: @txt;
+}
+
+.button(@bg, @txt) {
+  .block(@bg, @txt);
+  
+  &:hover {
+    background-color: lighten(@bg, 10%);
+  }
+  &:disabled {
+    background-color: darken(@bg, 10%);
+  }
+}
+
+
+.add-blog {
+  .button(@yellow, @textDark);
+  
+  display: block;
+  position: relative;
+  margin: 1em auto;
+  
+  padding: 1em 6em;
+}
+
+.controls {
+  
+  button, span.status {
+    display: inline-block;
+    height: @controlHeight;
+  }
+  
+  button {
+    &.download {
+      .button(@green, @textDark);
+      width: 200px;
+    }
+    
+    &.pause, &.resume {
+      width: 115px;
+      margin-right: 5px;
+    }
+    
+    &.pause{
+      .button(@yellow, @textDark);
+    }
+    
+    &.resume {
+      .button(@green, @textDark);
+    }
+    
+    &.cancel {
+      .button(@red, @textDark);
+      width: 80px;
+    }
+  }
+  
+  span.status {
+    font-size: @fontSize;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+    line-height: @controlHeight;
+    
+    &.starting {
+      .block(@green, @textDark);
+    }
+    
+    &.pausing {
+      .block(@yellow, @textDark);
+    }
+    
+    &.stopping {
+      .block(@red, @textDark);
+    }
+  }
+}
