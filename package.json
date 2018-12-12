@@ -20,9 +20,10 @@
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "less": "less-watch-compiler resources/less web/css index.less",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "less": "lessc resources/less/index.less web/css/index.css",
+    "lessw": "less-watch-compiler resources/less web/css index.less",
+    "pack": "npm run less && electron-builder --dir",
+    "dist": "npm run less && electron-builder"
   },
   "repository": {
     "type": "git",
