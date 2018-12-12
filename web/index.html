@@ -38,12 +38,10 @@
       <div id="wrapper">
         
         <div id="blogs">
-          
           <!-- This section is auto-populated -->
-          
         </div>
         
-        <button type="button" class="add-blog" name="add" onclick="addBlog()">Add Blog</button>
+        <button type="button" id="add-blog" class="add-blog" name="add">Add Blog</button>
       
       <div class="fade-up"></div>
       
@@ -63,44 +61,44 @@
        ██    ███████ ██      ██ ██      ███████ ██   ██    ██    ███████ ███████
     -->
     
-    <template id="blog">
+    <template id="template-blog">
       <section class="blog">
         <span class="name">Name2</span>
-        <span class="url">Url2</span>
+        <span class="status">0% (not started)</span>
         <div class="controls">
           
         </div>
       </section>
     </template>
     
-    <template id="controls-status-ready">
+    <template id="template-controls-status-ready">
       <button type="button" class="download">Download</button>
     </template>
     
-    <template id="controls-status-queued">
+    <template id="template-controls-status-queued">
       <!-- TODO -->
       <span>NOT IMPLEMENTED</span>
     </template>
     
-    <template id="controls-status-starting">
-      <span class="status pausing">Starting...</span>
+    <template id="template-controls-status-starting">
+      <span class="status starting">Starting...</span>
     </template>
     
-    <template id="controls-status-running">
+    <template id="template-controls-status-running">
       <button type="button" class="pause">Pause</button>
       <button type="button" class="cancel">Stop</button>
     </template>
     
-    <template id="controls-status-pausing">
-      <span class="status stopping">Pausing...</span>
+    <template id="template-controls-status-pausing">
+      <span class="status pausing">Pausing...</span>
     </template>
     
-    <template id="controls-status-paused">
+    <template id="template-controls-status-paused">
       <button type="button" class="resume">Resume</button>
       <button type="button" class="cancel">Stop</button>
     </template>
     
-    <template id="controls-status-stopping">
+    <template id="template-controls-status-stopping">
       <span class="status stopping">Stopping...</span>
     </template>
     
