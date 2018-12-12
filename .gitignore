@@ -74,3 +74,6 @@ settings.json
 
 # Compiled binaries
 dist/
+
+# Auto-generated files
+web/css/
