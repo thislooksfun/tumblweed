@@ -17,6 +17,14 @@
   </head>
   <body>
     
+    <!--
+    ██████   ██████  ██████  ██    ██
+    ██   ██ ██    ██ ██   ██  ██  ██
+    ██████  ██    ██ ██   ██   ████
+    ██   ██ ██    ██ ██   ██    ██
+    ██████   ██████  ██████     ██
+    -->
+    
     <div id="titlebar"></div>
     
     <div id="insets">
@@ -26,124 +34,71 @@
       <div id="wrapper">
         
         <div id="blogs">
-          <section class="blog">
-            <span class="name">Name1</span>
-            <span class="url">Url1</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
           
-          <section class="blog">
-            <span class="name">Name2</span>
-            <span class="url">Url2</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
+          <!-- This section is auto-populated -->
           
-          <section class="blog">
-            <span class="name">Name3</span>
-            <span class="url">Url3</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
-          
-          <section class="blog">
-            <span class="name">Name3</span>
-            <span class="url">Url3</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
-          
-          <section class="blog">
-            <span class="name">Name3</span>
-            <span class="url">Url3</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
-          
-          <section class="blog">
-            <span class="name">Name3</span>
-            <span class="url">Url3</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
-          
-          <section class="blog">
-            <span class="name">Name3</span>
-            <span class="url">Url3</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
-          
-          <section class="blog">
-            <span class="name">Name3</span>
-            <span class="url">Url3</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
-          
-          <section class="blog">
-            <span class="name">Name3</span>
-            <span class="url">Url3</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
-          
-          <section class="blog">
-            <span class="name">Name3</span>
-            <span class="url">Url3</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
-          
-          <section class="blog">
-            <span class="name">Name3</span>
-            <span class="url">Url3</span>
-            <div class="controls">
-              <button type="button">Download</button>
-              <button type="button" disabled>Pause</button>
-              <button type="button" disabled>Stop</button>
-            </div>
-          </section>
         </div>
         
         <button type="button" class="add-blog" name="add" onclick="addBlog()">Add Blog</button>
-        
-      </div>
       
       <div class="fade-up"></div>
       
     </div>
+    
+    
+    
+    
+    
+    
+    
+    <!--
+    ████████ ███████ ███    ███ ██████  ██       █████  ████████ ███████ ███████
+       ██    ██      ████  ████ ██   ██ ██      ██   ██    ██    ██      ██
+       ██    █████   ██ ████ ██ ██████  ██      ███████    ██    █████   ███████
+       ██    ██      ██  ██  ██ ██      ██      ██   ██    ██    ██           ██
+       ██    ███████ ██      ██ ██      ███████ ██   ██    ██    ███████ ███████
+    -->
+    
+    <template id="blog">
+      <section class="blog">
+        <span class="name">Name2</span>
+        <span class="url">Url2</span>
+        <div class="controls">
+          
+        </div>
+      </section>
+    </template>
+    
+    <template id="controls-status-ready">
+      <button type="button" class="download">Download</button>
+    </template>
+    
+    <template id="controls-status-queued">
+      <!-- TODO -->
+      <span>NOT IMPLEMENTED</span>
+    </template>
+    
+    <template id="controls-status-starting">
+      <span class="status pausing">Starting...</span>
+    </template>
+    
+    <template id="controls-status-running">
+      <button type="button" class="pause">Pause</button>
+      <button type="button" class="cancel">Stop</button>
+    </template>
+    
+    <template id="controls-status-pausing">
+      <span class="status stopping">Pausing...</span>
+    </template>
+    
+    <template id="controls-status-paused">
+      <button type="button" class="resume">Resume</button>
+      <button type="button" class="cancel">Stop</button>
+    </template>
+    
+    <template id="controls-status-stopping">
+      <span class="status stopping">Stopping...</span>
+    </template>
     
   </body>
 </html>

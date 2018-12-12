@@ -12,11 +12,15 @@
   },
   "devDependencies": {
     "electron": "^3.0.10",
-    "electron-builder": "^20.38.2"
+    "electron-builder": "^20.38.2",
+    "electron-reload": "^1.4.0",
+    "less": "^3.9.0",
+    "less-watch-compiler": "^1.13.0"
   },
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "less": "less-watch-compiler resources/less web/css index.less",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },

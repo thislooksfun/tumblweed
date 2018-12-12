@@ -8,6 +8,11 @@ log._setLevel("debug");
 const {app, BrowserWindow, dialog} = require("electron");
 const status = pquire("status");
 
+// Hot-reload
+// TODO: Remove this
+const path = require("path");
+require("electron-reload")(path.join(__dirname, "web"));
+
 app.on("ready", () => {
   const win = new BrowserWindow({
     width: 800,

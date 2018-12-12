@@ -1,150 +1,89 @@
-:root {
-  --titleBarHeight: 35px;
-  
-  /* Colors */
-  --backgroundColor:     51,  51,  51; /* rgb( 51,  51,  51) */
-  --textColor:          204, 204, 204; /* rgb(204, 204, 204) */
-  --buttonColor:         85,  85,  85; /* rgb( 85,  85,  85) */
-  --buttonHover:        102, 102, 102; /* rgb(102, 102, 102) */
-  --buttonDisabled:      65,  65,  65; /* rgb( 65,  65,  65) */
-  --buttonDisabledText: 125, 125, 125; /* rgb(125, 125, 125) */
-  
-  --fontSize: 18px;
-  --fontSizeSub: 15px;
-  
-  --fadeHeight: 20px;
-}
-
-
 body {
-  background-color: rgb(var(--backgroundColor));
-  color: rgb(var(--textColor));
-  
+  background-color: #59565b;
+  color: #d6ceda;
   position: absolute;
-  
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  
   margin: 0;
   padding: 0;
-  
-  font-size: var(--fontSize);
+  font-size: 20px;
+  font-family: sans-serif;
 }
-
-
 #titlebar {
   -webkit-app-region: drag;
   position: absolute;
-  
   top: 0;
   left: 0;
-  height: var(--titleBarHeight);
+  height: 35px;
   width: 100%;
 }
-
-
 #insets {
   position: absolute;
-  
   overflow: scroll;
-  
-  top: var(--titleBarHeight);
+  top: 35px;
   bottom: 0;
   left: 0;
   right: 0;
 }
-
 #wrapper {
   position: absolute;
-  
   left: 10px;
   right: 10px;
-  
-  padding: var(--fadeHeight) 0;
+  padding: 20px 0;
 }
-
-.fade-down, .fade-up {
+.fade-down,
+.fade-up {
   position: fixed;
   left: 0;
   width: 100%;
-  height: var(--fadeHeight);
-  
+  height: 20px;
   z-index: 9999;
 }
 .fade-down {
-  top: var(--titleBarHeight);
-  background: linear-gradient(to bottom, rgb(var(--backgroundColor)), rgba(var(--backgroundColor), 0));
+  top: 35px;
+  background: linear-gradient(to bottom, #59565b, rgba(89, 86, 91, 0));
 }
 .fade-up {
   bottom: 0;
-  background: linear-gradient(to top, rgb(var(--backgroundColor)), rgba(var(--backgroundColor), 0));
+  background: linear-gradient(to top, #59565b, rgba(89, 86, 91, 0));
 }
-
-
 .blog {
   /* Grid */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-    "Name Name Controls"
-    "URL URL Controls";
+  grid-template-areas: "name controls" "status controls";
   align-items: center;
-  
   /* Other */
   position: relative;
   box-sizing: border-box;
-  
   border-bottom: 1px solid #444;
-  
   height: 4em;
   padding: 0 10px;
 }
-
-
 .blog .controls {
-  grid-area: Controls;
+  grid-area: controls;
   justify-self: right;
+  display: flex;
+  width: 200px;
 }
-
-
 .blog .name {
-  grid-area: Name;
+  grid-area: name;
 }
-
-
-.blog .url {
-  grid-area: URL;
-  font-size: var(--fontSizeSub);
+.blog .status {
+  grid-area: status;
+  font-size: 15px;
 }
-
-
-
-
-
-
-
-
-/*
-██████  ██    ██ ████████ ████████  ██████  ███    ██ ███████
-██   ██ ██    ██    ██       ██    ██    ██ ████   ██ ██
-██████  ██    ██    ██       ██    ██    ██ ██ ██  ██ ███████
-██   ██ ██    ██    ██       ██    ██    ██ ██  ██ ██      ██
-██████   ██████     ██       ██     ██████  ██   ████ ███████
-*/
-
 button {
-  background-color: rgb(var(--buttonColor));
   border: 0;
   cursor: pointer;
-  color: rgb(var(--textColor));
-  font-size: var(--fontSize);
+  font-size: 20px;
+  font-family: sans-serif;
   text-decoration: none;
-}
-button:hover {
-  background-color: rgb(var(--buttonHover));
+  font-weight: bold;
+  position: relative;
 }
 button:active {
   box-shadow: inset 0px 0px 10px 2px #0005;
@@ -152,16 +91,88 @@ button:active {
 button:focus {
   outline: 0;
 }
-button:disabled {
-  background-color: rgb(var(--buttonDisabled));
-  color: rgb(var(--buttonDisabledText));
-}
-
-
 .add-blog {
+  background-color: #fed454;
+  color: #29230e;
   display: block;
   position: relative;
   margin: 1em auto;
-  
-  padding: 15px 50px;
+  padding: 1em 6em;
+}
+.add-blog:hover {
+  background-color: #fee187;
+}
+.add-blog:disabled {
+  background-color: #fec721;
+}
+.controls button,
+.controls span.status {
+  display: inline-block;
+  height: 50px;
+}
+.controls button.download {
+  background-color: #c2fe54;
+  color: #29230e;
+  width: 200px;
+}
+.controls button.download:hover {
+  background-color: #d4fe87;
+}
+.controls button.download:disabled {
+  background-color: #b0fe21;
+}
+.controls button.pause,
+.controls button.resume {
+  width: 115px;
+  margin-right: 5px;
+}
+.controls button.pause {
+  background-color: #fed454;
+  color: #29230e;
+}
+.controls button.pause:hover {
+  background-color: #fee187;
+}
+.controls button.pause:disabled {
+  background-color: #fec721;
+}
+.controls button.resume {
+  background-color: #c2fe54;
+  color: #29230e;
+}
+.controls button.resume:hover {
+  background-color: #d4fe87;
+}
+.controls button.resume:disabled {
+  background-color: #b0fe21;
+}
+.controls button.cancel {
+  background-color: #fe6e54;
+  color: #29230e;
+  width: 80px;
+}
+.controls button.cancel:hover {
+  background-color: #fe9987;
+}
+.controls button.cancel:disabled {
+  background-color: #fe4321;
+}
+.controls span.status {
+  font-size: 20px;
+  font-weight: bold;
+  width: 200px;
+  text-align: center;
+  line-height: 50px;
+}
+.controls span.status.starting {
+  background-color: #c2fe54;
+  color: #29230e;
+}
+.controls span.status.pausing {
+  background-color: #fed454;
+  color: #29230e;
+}
+.controls span.status.stopping {
+  background-color: #fe6e54;
+  color: #29230e;
 }
