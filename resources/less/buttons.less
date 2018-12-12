@@ -1,8 +1,7 @@
 button {
   border: 0;
   cursor: pointer;
-  font-size: @fontSize;
-  font-family: @fontFamily;
+  .textual();
   text-decoration: none;
   font-weight: bold;
   position: relative;
@@ -50,6 +49,11 @@ button {
   }
   
   button {
+    &.ok {
+      .button(@green, @textDark);
+      width: 80px;
+    }
+    
     &.download {
       .button(@green, @textDark);
       width: 200px;
