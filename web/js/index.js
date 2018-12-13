@@ -1,5 +1,3 @@
-// const DownloadManager = pquire("util/download-manager");
-
 $(() => {
   "use strict";
   
@@ -124,14 +122,4 @@ $(() => {
         $blogList.append($blog);
       });
   });
-
-  // function startDownload() {
-  //   console.log("Starting download");
-  // }
-
-  // (async function() {
-  //   const dlmg = new DownloadManager();
-  //   // TODO: add progress indicators to UI
-  //   await dlmg.crawl("https://<blog>.tumblr.com/");
-  // })();
 });
