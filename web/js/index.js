@@ -60,6 +60,12 @@ $(() => {
     $blog.find(".status").text(`${progress.done}/${progress.total} posts downloaded (${(100 * progress.done / progress.total).toFixed(2)}%)`);
   });
   
+  ipc.on("status-changed", (e, busy) => {
+    $("#settings-btn")
+      .prop("disabled", busy)
+      .prop("title", busy ? "Settings cannot be changed while running" : null);
+  });
+  
   function setState($blog, name, state) {
     const $ctrls = $(templates.control[state]);
     // Attach handlers (not all will be used for each state)
