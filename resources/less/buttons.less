@@ -31,6 +31,31 @@ button {
 }
 
 
+#settings-btn, #close-btn {
+  .button(@clear, @textLight);
+  
+  position: absolute;
+  top: 0;
+  right: 10px;
+  
+  height: @titleBarHeight;
+  width: @titleBarHeight;
+  
+  padding: 0;
+  
+  &:hover {
+    background-color: @clear;
+    color: lighten(@textLight, 10%);
+  }
+  &:active {
+    box-shadow: none;
+  }
+}
+
+#close-btn {
+  left: 10px;
+}
+
 .add-blog {
   .button(@yellow, @textDark);
   

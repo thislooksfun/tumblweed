@@ -108,10 +108,13 @@ $(() => {
   }
   
   $("#add-blog").click(() => {
-    
     popup("text")
       .then((name) => {
         ipc.send("add-blog", name);
       });
+  });
+  
+  $("#settings-btn").click(() => {
+    ipc.send("open-settings");
   });
 });

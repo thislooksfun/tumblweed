@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <!-- CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; object-src 'none'; style-src 'self'; img-src 'self'; media-src 'none'; frame-src 'none'; font-src 'none'; connect-src 'none'">
+    
+    <!-- Scripts -->
+    <script type="text/javascript">
+      // Load jQuery
+      window.$ = window.jQuery = require("./js/jquery-3.3.1.slim.min.js");
+    </script>
+    <script src="js/settings.js" charset="utf-8"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../node_modules/octicons/build/build.css">
+    <link rel="stylesheet" href="css/settings.css" />
+    
+    <!-- Other -->
+    <title>Tumblweed</title>
+  </head>
+  <body>
+    
+    <div id="titlebar">
+      <button type="button" id="close-btn" name="close">
+        <svg version="1.1" width="18" height="24" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+      </button>
+    </div>
+    
+    <div id="insets">
+      
+      <div class="fade-down"></div>
+      
+      <div id="wrapper">
+        
+        <div id="settings">
+          <!-- This section is auto-populated -->
+        </div>
+      
+      </div>
+      
+      <div class="fade-up"></div>
+      
+    </div>
+    
+    
+    <!--
+    ████████ ███████ ███    ███ ██████  ██       █████  ████████ ███████ ███████
+       ██    ██      ████  ████ ██   ██ ██      ██   ██    ██    ██      ██
+       ██    █████   ██ ████ ██ ██████  ██      ███████    ██    █████   ███████
+       ██    ██      ██  ██  ██ ██      ██      ██   ██    ██    ██           ██
+       ██    ███████ ██      ██ ██      ███████ ██   ██    ██    ███████ ███████
+    -->
+    
+    <template id="template-setting-string">
+      <section class="setting setting-string">
+        <span class="name">Human readable title</span>
+        <input type="text" name="" value="">
+      </section>
+    </template>
+    
+    <template id="template-setting-number">
+      <section class="setting setting-number">
+        <span class="name">Human readable title</span>
+        <input type="number" name="" value="">
+      </section>
+    </template>
+    
+    <template id="template-setting-bool">
+      <section class="setting setting-bool">
+        <span class="name">Human readable title</span>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </section>
+    </template>
+    
+  </body>
+</html>

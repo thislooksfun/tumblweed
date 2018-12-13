@@ -7,6 +7,7 @@
     "cheerio": "^1.0.0-rc.2",
     "dedupe": "^3.0.1",
     "flatmap": "0.0.3",
+    "octicons": "^8.2.0",
     "pquire": "^1.2.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
@@ -21,8 +22,8 @@
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "less": "lessc resources/less/index.less web/css/index.css",
-    "lessw": "less-watch-compiler resources/less web/css index.less",
+    "less": "lessc resources/less/index.less web/css/index.css && lessc resources/less/settings.less web/css/settings.css",
+    "lessw": "less-watch-compiler resources/less web/css",
     "pack": "npm run less && electron-builder --dir",
     "dist": "npm run less && electron-builder"
   },

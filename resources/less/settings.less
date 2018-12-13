@@ -1,0 +1,42 @@
+@import "vars";
+@import "utils";
+
+@import "misc";
+@import "buttons";
+@import "popups";
+@import "switch";
+
+#settings {
+  
+}
+
+.setting {
+  position: relative;
+  display: block;
+  margin-bottom: 50px;
+  
+  /* Grid */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "name" "input";
+  align-items: start;
+  
+  .name {
+    grid-area: name;
+  }
+  
+  input[type="text"], input[type="number"] {
+    grid-area: input;
+    
+    background: @background;
+    .textual();
+    
+    border: 0;
+    border-bottom: 2px solid @textLight;
+    
+    &:focus {
+      outline: 0;
+    }
+  }
+}
