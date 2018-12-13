@@ -5,6 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "dedupe": "^3.0.1",
     "flatmap": "0.0.3",
     "pquire": "^1.2.0",
     "request": "^2.88.0",
