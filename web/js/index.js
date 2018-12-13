@@ -12,13 +12,13 @@ $(() => {
   const templates = {
     blog: template("blog"),
     control: {
-      ready:    template("controls-status-ready"   ),
-      queued:   template("controls-status-queued"  ),
-      starting: template("controls-status-starting"),
-      running:  template("controls-status-running" ),
-      pausing:  template("controls-status-pausing" ),
-      paused:   template("controls-status-paused"  ),
-      stopping: template("controls-status-stopping"),
+      ready:    template("controls-state-ready"   ),
+      queued:   template("controls-state-queued"  ),
+      starting: template("controls-state-starting"),
+      running:  template("controls-state-running" ),
+      pausing:  template("controls-state-pausing" ),
+      paused:   template("controls-state-paused"  ),
+      stopping: template("controls-state-stopping"),
     },
     popup: {
       text: template("popup-text"),
@@ -27,7 +27,7 @@ $(() => {
   
   const $blogList = $("#blogs");
   
-  function updateState(controller) {
+  function setState(controller) {
     const $ctrls = $(templates.control[controller.state]);
     // Attach handlers (not all will be used for each state)
     $ctrls.filter("button.download").click(() => controller.download());
