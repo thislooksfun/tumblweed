@@ -30,7 +30,15 @@ $(() => {
   const $blogList = $("#blogs");
   
   ipc.on("add-blog-success", (e, name, state) => {
-    setState($blogList.find(`#blog-${name}`), state);
+    const $blog = $(templates.blog);
+    $blog.attr("id", `blog-${name}`);
+    $blog.find(".name").text(`https://${name}.tumblr.com`);
+    setState($blog, name, state);
+    $blogList.append($blog);
+  });
+  
+  ipc.on("add-blog-failure", (e, reason) => {
+    alert(reason);
   });
   
   ipc.on("update-blog-list", (e, blogs) => {
@@ -38,22 +46,27 @@ $(() => {
     for (const {name, state} of blogs) {
       const $blog = $(templates.blog);
       $blog.find(".name").text(name);
-      setState($blog, state);
+      setState($blog, name, state);
       $blogList.append($blog);
     }
   });
   
-  ipc.on("state-change", (e, name, state) => {
-    setState($blogList.find(`#blog-${name}`), state);
+  ipc.on("update-blog", (e, name, state, progress) => {
+    const $blog = $blogList.find(`#blog-${name}`);
+    if ($blog == null) {
+      throw new Error(`Missing blog ${name} -- This shouldn't happen; if you see this, submit an issue on GitHub.`);
+    }
+    setState($blog, name, state);
+    $blog.find(".status").text(`${progress.done}/${progress.total} posts downloaded (${(100 * progress.done / progress.total).toFixed(2)}%)`);
   });
   
-  function setState($blog, state) {
+  function setState($blog, name, state) {
     const $ctrls = $(templates.control[state]);
     // Attach handlers (not all will be used for each state)
-    $ctrls.filter("button.download").click(() => ipc.send("buttonPress", name, "download"));
-    $ctrls.filter("button.pause"   ).click(() => ipc.send("buttonPress", name, "pause"));
-    $ctrls.filter("button.resume"  ).click(() => ipc.send("buttonPress", name, "resume"));
-    $ctrls.filter("button.cancel"  ).click(() => ipc.send("buttonPress", name, "cancel"));
+    $ctrls.filter("button.download").click(() => ipc.send("button-pressed", name, "download"));
+    $ctrls.filter("button.pause"   ).click(() => ipc.send("button-pressed", name, "pause"));
+    $ctrls.filter("button.resume"  ).click(() => ipc.send("button-pressed", name, "resume"));
+    $ctrls.filter("button.cancel"  ).click(() => ipc.send("button-pressed", name, "cancel"));
     // Insert controls
     $(".controls", $blog).empty().append($ctrls);
   }
