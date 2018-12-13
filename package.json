@@ -1,5 +1,5 @@
 {
-  "name": "tumblrweed",
+  "name": "tumblweed",
   "version": "0.1.0",
   "description": "A simple cross-platform Tumblr blog downloader.",
   "main": "main.js",
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thislooksfun/tumblrweed.git"
+    "url": "git+https://github.com/thislooksfun/tumblweed.git"
   },
   "keywords": [
     "tumblr",
@@ -37,11 +37,11 @@
   "author": "thislooksfun",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thislooksfun/tumblrweed/issues"
+    "url": "https://github.com/thislooksfun/tumblweed/issues"
   },
-  "homepage": "https://github.com/thislooksfun/tumblrweed#readme",
+  "homepage": "https://github.com/thislooksfun/tumblweed#readme",
   "build": {
-    "appId": "io.github.thislooksfun.tumblrweed",
+    "appId": "io.github.thislooksfun.tumblweed",
     "mac": {
       "category": "Utilities",
       "identity": null
