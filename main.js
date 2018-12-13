@@ -26,27 +26,31 @@ app.on("ready", () => {
   win.loadFile("web/index.html");
   // win.openDevTools();
   
-  win.on("close", e => {
+  win.on("close", (e) => {
     // Bypass check if nothing is happening
     if (status.idle) { return; }
     
-    let choice = dialog.showMessageBox(
-      win,
-      {
-        type: "warning",
-        buttons: ["Yes", "No"],
-        defaultId: 1,
-        cancelId: 1,
-        title: "Confirm",
-        message: "Are you sure you want to quit? This will cancel all downloads."
+    // Not idle, abort for now
+    e.preventDefault();
+    
+    const opts = {
+      type: "warning",
+      buttons: ["Yes", "No"],
+      defaultId: 1,
+      cancelId: 1,
+      title: "Confirm",
+      message: "Are you sure you want to quit? This will cancel all downloads."
+    };
+    
+    dialog.showMessageBox(win, opts, (choice) => {
+      if (choice === 0) {
+        // Bypass idle check
+        status.idle = true;
+        win.destroy();
+        win = null;
+        events.win = null;
       }
-    );
-    if (choice === 1) {
-      e.preventDefault();
-    } else {
-      win = null;
-      events.win = null;
-    }
+    });
   });
 });
 
