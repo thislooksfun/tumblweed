@@ -9,11 +9,6 @@ const {app, BrowserWindow, dialog} = require("electron");
 const status = pquire("status");
 const events = pquire("events");
 
-// Hot-reload
-// TODO: Remove this
-const path = require("path");
-require("electron-reload")(path.join(__dirname, "web"));
-
 let win;
 
 app.on("ready", () => {
