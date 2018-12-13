@@ -1,6 +1,8 @@
 $(() => {
   "use strict";
   
+  const ipc = require("electron").ipcRenderer;
+  
   // Hide overlay to start
   const $overlay = $(".overlay");
   $overlay.hide();
@@ -27,17 +29,33 @@ $(() => {
   
   const $blogList = $("#blogs");
   
-  function setState(controller) {
-    const $ctrls = $(templates.control[controller.state]);
+  ipc.on("add-blog-success", (e, name, state) => {
+    setState($blogList.find(`#blog-${name}`), state);
+  });
+  
+  ipc.on("update-blog-list", (e, blogs) => {
+    $blogList.empty();
+    for (const {name, state} of blogs) {
+      const $blog = $(templates.blog);
+      $blog.find(".name").text(name);
+      setState($blog, state);
+      $blogList.append($blog);
+    }
+  });
+  
+  ipc.on("state-change", (e, name, state) => {
+    setState($blogList.find(`#blog-${name}`), state);
+  });
+  
+  function setState($blog, state) {
+    const $ctrls = $(templates.control[state]);
     // Attach handlers (not all will be used for each state)
-    $ctrls.filter("button.download").click(() => controller.download());
-    $ctrls.filter("button.pause"   ).click(() => controller.pause());
-    $ctrls.filter("button.resume"  ).click(() => controller.resume());
-    $ctrls.filter("button.cancel"  ).click(() => controller.cancel());
+    $ctrls.filter("button.download").click(() => ipc.send("buttonPress", name, "download"));
+    $ctrls.filter("button.pause"   ).click(() => ipc.send("buttonPress", name, "pause"));
+    $ctrls.filter("button.resume"  ).click(() => ipc.send("buttonPress", name, "resume"));
+    $ctrls.filter("button.cancel"  ).click(() => ipc.send("buttonPress", name, "cancel"));
     // Insert controls
-    $(".controls", controller.$blog)
-      .empty()
-      .append($ctrls);
+    $(".controls", $blog).empty().append($ctrls);
   }
   
   function popup(type) {
@@ -80,46 +98,7 @@ $(() => {
     
     popup("text")
       .then((name) => {
-        // TODO:
-        alert(name);
-        
-        const $blog = $(templates.blog);
-        const controller = {
-          $blog: $blog,
-          _state: "ready",
-          get state() { return this._state; },
-          set state(s) {
-            console.log("Set state to " + s);
-            this._state = s;
-            updateState(this);
-          },
-          download: function() {
-            console.log("DL");
-            const _self = this;
-            _self.state = "starting";
-            setTimeout(() => _self.state = "running", 1 * 1000);
-          },
-          pause: function() {
-            console.log("Pause");
-            const _self = this;
-            _self.state = "pausing";
-            setTimeout(() => _self.state = "paused", 1 * 1000);
-          },
-          resume: function() {
-            console.log("Resume");
-            const _self = this;
-            _self.state = "starting";
-            setTimeout(() => _self.state = "running", 1 * 1000);
-          },
-          cancel: function() {
-            console.log("Cancel");
-            const _self = this;
-            _self.state = "stopping";
-            setTimeout(() => _self.state = "ready", 1 * 1000);
-          },
-        };
-        updateState(controller);
-        $blogList.append($blog);
+        ipc.send("add-blog", name);
       });
   });
 });
