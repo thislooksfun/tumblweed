@@ -1,12 +1,14 @@
 {
   "name": "tumblweed",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A simple cross-platform Tumblr blog downloader.",
   "main": "main.js",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "dedupe": "^3.0.1",
+    "electron-updater": "^4.0.6",
     "flatmap": "0.0.3",
+    "fs-extra": "^7.0.1",
     "octicons": "^8.2.0",
     "pquire": "^1.2.0",
     "request": "^2.88.0",
@@ -25,7 +27,8 @@
     "less": "lessc resources/less/index.less web/css/index.css && lessc resources/less/settings.less web/css/settings.css",
     "lessw": "less-watch-compiler resources/less web/css",
     "pack": "npm run less && electron-builder --dir",
-    "dist": "npm run less && electron-builder"
+    "dist": "npm run less && electron-builder -wml",
+    "ship": "npm run less && electron-builder -wml -p always"
   },
   "repository": {
     "type": "git",
@@ -41,12 +44,5 @@
   "bugs": {
     "url": "https://github.com/thislooksfun/tumblweed/issues"
   },
-  "homepage": "https://github.com/thislooksfun/tumblweed#readme",
-  "build": {
-    "appId": "io.github.thislooksfun.tumblweed",
-    "mac": {
-      "category": "Utilities",
-      "identity": null
-    }
-  }
+  "homepage": "https://github.com/thislooksfun/tumblweed#readme"
 }

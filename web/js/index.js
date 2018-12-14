@@ -66,6 +66,11 @@ $(() => {
       .prop("title", busy ? "Settings cannot be changed while running" : null);
   });
   
+  const $updateBtn = $("#update-btn");
+  $updateBtn.hide();
+  $updateBtn.click(() => ipc.send("quitAndInstall"));
+  ipc.on("updateReady", () => $updateBtn.show());
+  
   function setState($blog, name, state) {
     const $ctrls = $(templates.control[state]);
     // Attach handlers (not all will be used for each state)

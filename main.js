@@ -7,26 +7,31 @@ log._setLevel("debug");
 
 const {app, BrowserWindow, dialog} = require("electron");
 const status = pquire("status");
-const events = pquire("events");
-
-let win;
+const cache = pquire("cache");
+// Just needs to be required to run setup
+pquire("events");
 
 app.on("ready", () => {
-  events.win = win = new BrowserWindow({
+  // Configure menu
+  pquire("menu");
+  
+  pquire("update");
+  
+  cache.win = new BrowserWindow({
     width: 800,
     height: 600,
     show: false,
     backgroundColor: "#333",
     titleBarStyle: "hiddenInset",
   });
-  win.once("ready-to-show", () => {
-    win.show();
+  cache.win.once("ready-to-show", () => {
+    cache.win.show();
   });
 
-  win.loadFile("web/index.html");
-  // win.openDevTools();
+  cache.win.loadFile("web/index.html");
+  // cache.win.openDevTools();
   
-  win.on("close", (e) => {
+  cache.win.on("close", (e) => {
     // Bypass check if nothing is happening
     if (status.idle) { return; }
     
@@ -42,13 +47,12 @@ app.on("ready", () => {
       message: "Are you sure you want to quit? This will cancel all downloads."
     };
     
-    dialog.showMessageBox(win, opts, (choice) => {
+    dialog.showMessageBox(cache.win, opts, (choice) => {
       if (choice === 0) {
         // Bypass idle check
         status.idle = true;
-        win.destroy();
-        win = null;
-        events.win = null;
+        cache.win.destroy();
+        cache.win = null;
       }
     });
   });
