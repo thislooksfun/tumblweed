@@ -18,5 +18,5 @@ N/A
 - Basic settings window.
 - In-app updates.
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.1...HEAD
-[1.0.1]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...v1.0.1
+[Unreleased]: https://github.com/thislooksfun/tumblweed/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/thislooksfun/tumblweed/compare/v1.0.0...v1.0.1
