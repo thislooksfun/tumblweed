@@ -7,13 +7,8 @@ files:
   - "!.eslintrc.yml"
   - "!settings.json"
   - "!test.js"
-directories:
-  output: "/Volumes/ssd_mac/tumblweed/dist"
+  - "!sanitize"
+  - "!ship"
 mac:
   category: public.app-category.utilities
   identity: null
-  target: zip
-win:
-  target: nsis
-linux:
-  target: AppImage
