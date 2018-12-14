@@ -1,7 +1,6 @@
 appId: "io.github.thislooksfun.tumblweed"
 publish:
   provider: github
-  token: b56ed414ee148451b160e2426bfc8a6312e5b869
 files:
   - "!Blogs"
   - "!dist"
