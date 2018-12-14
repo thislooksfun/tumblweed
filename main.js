@@ -8,14 +8,18 @@ log._setLevel("debug");
 const {app, BrowserWindow, dialog} = require("electron");
 const status = pquire("status");
 const cache = pquire("cache");
+const isDev = require("electron-is-dev");
 // Just needs to be required to run setup
 pquire("events");
 
 app.on("ready", () => {
   // Configure menu
   pquire("menu");
-  
-  pquire("update");
+
+  if (!isDev) {
+    // Just needs to be required to run setup
+    pquire("update");
+  }
   
   cache.win = new BrowserWindow({
     width: 800,

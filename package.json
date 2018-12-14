@@ -6,6 +6,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "dedupe": "^3.0.1",
+    "electron-is-dev": "^1.0.1",
     "electron-updater": "^4.0.6",
     "flatmap": "0.0.3",
     "fs-extra": "^7.0.1",
