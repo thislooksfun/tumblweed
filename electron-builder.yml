@@ -11,4 +11,3 @@ files:
   - "!ship"
 mac:
   category: public.app-category.utilities
-  identity: null
