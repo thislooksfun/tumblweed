@@ -79,4 +79,5 @@ dist/
 web/css/
 
 # Distribution
+sanitize
 ship
