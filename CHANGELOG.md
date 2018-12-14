@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Set page size to 20, not 1
 - Don't try to download external videos
 - Fix error when post is an abstract (has a "read more" link)
+- Fix error if a link post doesn't have a preview image
 
 ## [1.1.0]
 ### Added
