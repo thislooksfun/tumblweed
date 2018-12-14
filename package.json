@@ -28,7 +28,7 @@
     "lessw": "less-watch-compiler resources/less web/css",
     "pack": "npm run less && electron-builder --dir",
     "dist": "npm run less && electron-builder -wml",
-    "ship": "npm run less && electron-builder -wml -p always"
+    "ship": "./ship"
   },
   "repository": {
     "type": "git",
