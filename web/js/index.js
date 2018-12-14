@@ -82,7 +82,7 @@ $(() => {
     $(".controls", $blog).empty().append($ctrls);
   }
   
-  function popup(type) {
+  function popup(type, title) {
     return new Promise((resolve, reject) => {
       const $popup = $(templates.popup[type]);
       const $ctrls = $(".controls", $popup);
@@ -97,6 +97,7 @@ $(() => {
             resolve();
         }
       }
+      $popup.find("h3").text(title);
       $popup.find("input").keypress((e) => {
         if (e.which == 13 ) {
           save();
@@ -119,7 +120,7 @@ $(() => {
   }
   
   $("#add-blog").click(() => {
-    popup("text")
+    popup("text", "Enter blog name or URL")
       .then((name) => {
         ipc.send("add-blog", name);
       });

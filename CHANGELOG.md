@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - Support for audio, chat, link, and quote posts
+- Fix 'add blog' popup title text
 
 ## [1.0.1] - 2018-12-14
 ### Added
