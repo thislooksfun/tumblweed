@@ -5,9 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
 - Fix visual glitch when adding a blog by URL
+- Set page size to 20, not 1
 
 ## [1.1.0]
+### Added
 - Support for audio, chat, link, and quote posts
 - Fix 'add blog' popup title text
 
