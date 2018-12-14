@@ -1,6 +1,6 @@
 {
   "name": "tumblweed",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "A simple cross-platform Tumblr blog downloader.",
   "main": "main.js",
   "dependencies": {
