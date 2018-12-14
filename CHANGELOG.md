@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix visual glitch when adding a blog by URL
 - Set page size to 20, not 1
 - Don't try to download external videos
+- Fix error when post is an abstract (has a "read more" link)
 
 ## [1.1.0]
 ### Added
