@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
 ## [Unreleased]
 ### Added
 - Now writes an `<id>.meta.json` file alongside the `<id>.json` file.
@@ -16,15 +17,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix error when post is an abstract (has a "read more" link).
 - Fix error if a link post doesn't have a preview image.
 - Fix occasional ENOTFOUND issue.
+- Process avatars and header images seperately from posts.
+
 
 ## [1.1.0]
 ### Added
 - Support for audio, chat, link, and quote posts.
 - Fix 'add blog' popup title text.
 
+
 ## [1.0.1] - 2018-12-14
 ### Added
 - Signed the mac app.
+
 
 ## 1.0.0 - 2018-12-14
 ### Added
@@ -32,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for downloading embedded \<img>, \<figure>, \<source>, and \<video> tags.
 - Basic settings window.
 - In-app updates.
+
 
 [Unreleased]: https://github.com/thislooksfun/tumblweed/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/thislooksfun/tumblweed/compare/v1.0.1...v1.1.0
