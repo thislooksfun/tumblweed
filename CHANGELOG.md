@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Now writes an `<id>.meta.json` file alongside the `<id>.json` file.
+- Smartly uses that new `.meta.json` file to skip previously downloaded posts if they finished with no errors.
+
 ### Changed
 - Fix visual glitch when adding a blog by URL.
 - Set page size to 20, not 1.
