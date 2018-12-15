@@ -21,7 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## [Unreleased]
-N/A
+### Added
+- The app now shows that it's checking for updates instead of just suddenly showing a button.
 
 
 ## [1.2.0]

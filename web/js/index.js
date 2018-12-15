@@ -79,10 +79,29 @@ $(() => {
       .prop("title", busy ? "Settings cannot be changed while running" : null);
   });
   
-  const $updateBtn = $("#update-btn");
+  
+  // Updates
+  const $updateText = $("#update span.text");
+  const $updateProgress = $("#update span.progress");
+  const $updateBtn = $("#update button");
   $updateBtn.hide();
-  $updateBtn.click(() => ipc.send("quitAndInstall"));
-  ipc.on("updateReady", () => $updateBtn.show());
+  $updateProgress.hide();
+  $updateBtn.click(() => ipc.send("quit-and-install"));
+  ipc.on("update-available", (e, {version}) => {
+    $updateText.text(`Downloading v${version}`);
+    $updateProgress.show();
+  });
+  ipc.on("update-download-progress", (e, {percent}) => $updateProgress.text(`(${percent.toFixed(2)}%)`));
+  ipc.on("update-downloaded", () => {
+    $updateText.hide();
+    $updateProgress.hide();
+    $updateBtn.show();
+  });
+  ipc.on("update-not-available", () => {
+    $updateText.text("Up-to-date!");
+    setTimeout(() => $updateText.hide(), 2 * 1000);
+  });
+  
   
   function setState($blog, name, state) {
     const $ctrls = $(templates.control[state]);
