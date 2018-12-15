@@ -19,11 +19,6 @@ A simple cross-platform Tumblr blog downloader. Works on Windows, Mac, Linux, an
 
 ## Timeline
 
-#### 2018/12/13 (or 14, but hopefully 13):
- - release v1.0.0:
-   - full blog download + all associated media
-   - limited (but functional) UI
-
 #### 2018/12/14-17 (in order of priority):
  1. Download related bugfixes
  2. Download related missing features
