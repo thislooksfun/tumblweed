@@ -21,6 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## [Unreleased]
+N/A
+
+
+## [1.2.0]
 ### Added
 - Now writes an `<id>.meta.json` file alongside the `<id>.json` file.
 - Smartly uses that new `.meta.json` file to skip previously downloaded posts if they finished with no errors.
