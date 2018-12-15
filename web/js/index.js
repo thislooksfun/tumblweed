@@ -57,7 +57,20 @@ $(() => {
       throw new Error(`Missing blog ${name} -- This shouldn't happen; if you see this, submit an issue on GitHub.`);
     }
     setState($blog, name, state);
-    $blog.find(".status").text(`${progress.done}/${progress.total} posts downloaded (${(100 * progress.done / progress.total).toFixed(2)}%)`);
+    $blog.find(".status").text(`Phase ${progress.phase}/${progress.phases}: ${progress.phase_name}: ${progress.done}/${progress.total} (${(100 * progress.done / progress.total).toFixed(2)}%)`);
+  });
+  
+  ipc.on("finish-blog", (e, name, state, errorCount) => {
+    const $blog = $blogList.find(`#blog-${name}`);
+    if ($blog == null) {
+      throw new Error(`Missing blog ${name} -- This shouldn't happen; if you see this, submit an issue on GitHub.`);
+    }
+    setState($blog, name, state);
+    let text = "Finished!";
+    if (errorCount > 0) {
+      text += ` (${errorCount} error${errorCount === 1 ? "" : "s"} -- see ${name}/meta.json for more info)`;
+    }
+    $blog.find(".status").text(text);
   });
   
   ipc.on("status-changed", (e, busy) => {
