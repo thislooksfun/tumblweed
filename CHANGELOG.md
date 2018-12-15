@@ -6,17 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- Fix visual glitch when adding a blog by URL
-- Set page size to 20, not 1
-- Don't try to download external videos
-- Fix error when post is an abstract (has a "read more" link)
-- Fix error if a link post doesn't have a preview image
+- Fix visual glitch when adding a blog by URL.
+- Set page size to 20, not 1.
+- Don't try to download external videos.
+- Fix error when post is an abstract (has a "read more" link).
+- Fix error if a link post doesn't have a preview image.
 - Fix occasional ENOTFOUND issue.
 
 ## [1.1.0]
 ### Added
-- Support for audio, chat, link, and quote posts
-- Fix 'add blog' popup title text
+- Support for audio, chat, link, and quote posts.
+- Fix 'add blog' popup title text.
 
 ## [1.0.1] - 2018-12-14
 ### Added
